@@ -24,9 +24,10 @@ int main(int argc, char *argv[]){
 
     int fd;
     for(int i=1 ; i<argc ; i++){
-        fd = open(argv[i], O_CREAT, S_IRUSR | S_IWUSR);
+        fd = open(argv[i], O_CREAT | O_EXCL, S_IRUSR | S_IWUSR);
+        // printf("fd : %d\n", fd);
         if( fd == -1){
-            perror("open file failed,\n");
+            printf("open file failed, maybe %s is already exist.\n", argv[i]);
             exit(1);
         }
         close(fd);
