@@ -9,6 +9,5 @@ touch_impl:	touch_impl.c
 
 .PHONY : clean
 clean:	
-	@rm abc touch_impl
-	@echo "abc cleaned"
+	@rm touch_impl
 
